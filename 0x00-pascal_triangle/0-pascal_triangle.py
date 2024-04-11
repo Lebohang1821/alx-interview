@@ -1,20 +1,21 @@
 #!/usr/bin/python3
+'''The Mod for working with Pascal's triangle
+'''
+
+
 def pascal_triangle(n):
-    """
-    Generates Pascal's triangle up to the nth row.
-    """
+    '''It makes list of lists of integers repr
+    Pascal's triangle of given integer
+    '''
     triangle = []
-
-    if n <= 0:
+    if type(n) is not int or n <= 0:
         return triangle
-
     for i in range(n):
-        row = [1]  # First element in every row is 1
-        if i > 0:
-            # Calculate elements in the current row based on the previous row
-            for j in range(1, i):
-                row.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
-            row.append(1)  # Last element in every row is 1
-        triangle.append(row)
-
+        line = []
+        for j in range(i + 1):
+            if j == 0 or j == i:
+                line.append(1)
+            elif i > 0 and j > 0:
+                line.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
+        triangle.append(line)
     return triangle
