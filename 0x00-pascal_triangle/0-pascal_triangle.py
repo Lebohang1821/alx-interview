@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''The Mod for working with Pascal's triangle
+'''The Mod for working with Pascal triangle
 '''
 
 
