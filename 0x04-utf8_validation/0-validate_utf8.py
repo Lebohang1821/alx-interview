@@ -7,35 +7,39 @@ def validUTF8(data):
     Method that determines if a given data set represents a valid
     UTF-8 encoding.
     """
-    num_bytes = 0
-    max_bytes = 4
+    number_bytes = 0
 
+    # Define masks for UTF-8 encoding
     start_byte_mask = 1 << 7
-    continuation_byte_mask = (1 << 7) | (1 << 6)
+    continuation_byte_mask = 1 << 6
 
     for byte in data:
 
         mask_byte = 1 << 7
 
-        if num_bytes == 0:
+        if number_bytes == 0:
 
+            # Count number of bytes in the sequence
             while mask_byte & byte:
-                num_bytes += 1
+                number_bytes += 1
                 mask_byte = mask_byte >> 1
 
-            if num_bytes == 0:
+            if number_bytes == 0:
                 continue
 
-            if num_bytes == 1 or num_bytes > max_bytes:
+            # Check for invalid number of bytes
+            if number_bytes == 1 or number_bytes > 4:
                 return False
 
         else:
+            # Check if byte is a continuation byte
             if not (byte & start_byte_mask and not (byte & continuation_byte_mask)):
                 return False
 
-        num_bytes -= 1
+        number_bytes -= 1
 
-    if num_bytes == 0:
+    # Check if all bytes have been processed
+    if number_bytes == 0:
         return True
 
     return False
