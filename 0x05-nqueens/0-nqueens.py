@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-"""Module to find solutions for the N queens problem.
+"""Module to find solutions for the N queens problem
 """
 import sys
 
 
 solutions = []
-"""Stores all possible solutions for the N queens problem.
+"""It stores all possible solutions for N queens problem
 """
 n = 0
-"""Represents the size of the chessboard.
+"""It represents size of the chessboard
 """
 pos = None
-"""Stores all possible positions on the chessboard.
+"""It stores all possible positions on chessboard
 """
 
 
 def get_input():
-    """Retrieves and validates the program's argument.
+    """Retrieves and validates program's argument
 
     Returns:
-        int: Size of the chessboard.
+        int: Size of chessboard
     """
     global n
     n = 0
@@ -38,11 +38,11 @@ def get_input():
 
 
 def is_attacking(pos0, pos1):
-    """Determines if two queens are in attacking positions.
+    """Determines if two queens are in attacking positions
 
     Args:
-        pos0 (list or tuple): Position of the first queen.
-        pos1 (list or tuple): Position of the second queen.
+        pos0 (list or tuple): Position of first queen
+        pos1 (list or tuple): Position of second queen
 
     Returns:
         bool: True if queens can attack each other, False otherwise.
