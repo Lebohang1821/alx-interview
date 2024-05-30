@@ -2,20 +2,19 @@
 """2D matrix rotation module.
 """
 
-
 def rotate_2d_matrix(matrix):
-    """Rotates an m by n 2D matrix in place.
-    """
-    if type(matrix) != list:
+    """Rotates an m by n 2D matrix in place."""
+    if not isinstance(matrix, list) or len(matrix) == 0:
         return
-    if len(matrix) <= 0:
+    if not all(isinstance(row, list) for row in matrix):
         return
-    if not all(map(lambda x: type(x) == list, matrix)):
-        return
+
     num_rows = len(matrix)
     num_cols = len(matrix[0])
-    if not all(map(lambda x: len(x) == num_cols, matrix)):
+
+    if not all(len(row) == num_cols for row in matrix):
         return
+
     c, r = 0, num_rows - 1
     for i in range(num_cols * num_rows):
         if i % num_rows == 0:
