@@ -3,15 +3,18 @@
 """
 
 def rotate_2d_matrix(matrix):
-    """Rotates an m by n 2D matrix in place."""
-    if not isinstance(matrix, list) or len(matrix) == 0:
+    """Rotates a 2D matrix 90 degrees clockwise in place.
+    """
+    if not isinstance(matrix, list):
+        return
+    if len(matrix) == 0:
         return
     if not all(isinstance(row, list) for row in matrix):
         return
-
+    
     num_rows = len(matrix)
     num_cols = len(matrix[0])
-
+    
     if not all(len(row) == num_cols for row in matrix):
         return
 
