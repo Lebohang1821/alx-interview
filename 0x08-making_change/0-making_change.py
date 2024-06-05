@@ -1,12 +1,11 @@
-??? from here until ???END lines may have been inserted/deleted
 #!/usr/bin/python3
-"""Change making module.
+"""Coin Change Algorithm.
 """
 
 
 def makeChange(coins, total):
-    """Determines the fewest number of coins needed to meet a given
-    amount total when given a pile of coins of different values.
+    """It finds fewest coins needed to reach given total
+    with set of different valued coins.
     """
     if total <= 0:
         return 0
