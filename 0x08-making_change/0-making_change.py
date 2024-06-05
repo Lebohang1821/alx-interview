@@ -21,5 +21,5 @@ def makeChange(coins, total):
             rem -= sorted_coins[coin_idx]
             coins_count += 1
         else:
-            coin_i
-???END
+            coin_idx += 1
+    return coins_count
