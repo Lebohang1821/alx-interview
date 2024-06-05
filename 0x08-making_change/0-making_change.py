@@ -10,7 +10,7 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
     _rem = total
-    coins_count = 0
+    coins_counted = 0
     coin_idx = 0
     sorted_coins = sorted(coins, reverse=True)
     n = len(coins)
@@ -19,7 +19,7 @@ def makeChange(coins, total):
             return -1
         if _rem - sorted_coins[coin_idx] >= 0:
             _rem -= sorted_coins[coin_idx]
-            coins_count += 1
+            coins_counted += 1
         else:
             coin_idx += 1
-    return coins_count
+    return coins_counted
