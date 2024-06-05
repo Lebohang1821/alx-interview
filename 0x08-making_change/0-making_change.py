@@ -4,7 +4,7 @@
 
 
 def makeChange(coins, total):
-    """It finds fewest coins needed to reach given total
+    """It finds fewest coins needed - reach given total
     with set of different valued coins.
     """
     if total <= 0:
